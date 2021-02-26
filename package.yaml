@@ -1,0 +1,64 @@
+name:                ftr
+version:             0.1.0.0
+github:              "anonymous"
+license:             BSD3
+author:              "Anonymous"
+maintainer:          "anonymous@email.com"
+copyright:           "authors of corresponding paper"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <anonym>
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl
+- containers >= 0.6.2.1
+- picosat >= 0.1.6
+- bimap
+- terminal >= 0.2.0.0
+- prettyprinter >= 1.6.2
+# - bytestring
+# - utf8-string
+
+library:
+  source-dirs:
+    - src
+    - src/feature
+    - src/feature/recording
+    - src/tree
+    - src/tree/grammars
+    - src/propositions
+
+executables:
+  ftr-exe:
+    main:                Main.hs
+    source-dirs:
+      - app
+      - app/examples
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ftr
+
+tests:
+  ftr-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - ftr

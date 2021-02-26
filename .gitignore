@@ -1,0 +1,7 @@
+*~
+.idea/
+
+#Haskell and Stack
+.stack-work/
+ftr.cabal
+stack.yaml.lock
